@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TapConnect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: narrow single column, gradient hero, then download + steps cards. */
+  :root{
+    --bg:#f4f6fc; --card:#ffffff; --fg:#14161b; --muted:#5b6070; --line:#e4e7f0;
+    --brand1:#4f46e5; --brand2:#0d9488; --chip:#eef0fb; --ring:rgba(79,70,229,.3);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c0e13; --card:#161922; --fg:#e8eaf1; --muted:#aab0c0; --line:#272c38;
+      --brand1:#8c92ff; --brand2:#4fd6c4; --chip:#1e2230; --ring:rgba(140,146,255,.35);
+      color-scheme:dark;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--fg); background:var(--bg); line-height:1.5;
+  }
+  .wrap{max-width:620px; margin:0 auto;
+    padding-left:max(18px,env(safe-area-inset-left)); padding-right:max(18px,env(safe-area-inset-right));
+    padding-bottom:max(40px,env(safe-area-inset-bottom));}
+  .hero{
+    margin:0 calc(-1 * max(18px,env(safe-area-inset-left))) 0 calc(-1 * max(18px,env(safe-area-inset-right)));
+    background:linear-gradient(140deg,var(--brand1),var(--brand2)); color:#fff;
+    padding:max(46px,calc(env(safe-area-inset-top) + 40px)) 26px 40px;
+    border-radius:0 0 30px 30px; text-align:center;
+  }
+  .logo{width:72px; height:72px; margin:0 auto 18px; border-radius:20px;
+    background:rgba(255,255,255,.16); display:flex; align-items:center; justify-content:center;}
+  .logo svg{width:40px; height:40px}
+  .hero h1{margin:0; font-size:34px; font-weight:700; letter-spacing:-.01em}
+  .hero p{margin:10px auto 0; max-width:40ch; font-size:16px; opacity:.92}
+  .section{margin-top:26px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:20px; padding:24px}
+  .card h2{margin:0 0 4px; font-size:19px; font-weight:600}
+  .card .sub{margin:0 0 18px; color:var(--muted); font-size:14px}
+  .dl{
+    display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+    background:linear-gradient(135deg,var(--brand1),var(--brand2)); color:#fff;
+    font-weight:600; font-size:17px; text-decoration:none; padding:17px; border-radius:16px;
+    box-shadow:0 12px 26px -12px var(--ring);
+  }
+  .dl:active{transform:translateY(1px)}
+  .dl svg{width:22px; height:22px}
+  .meta{margin:12px 0 0; text-align:center; color:var(--muted); font-size:13px}
+  ol{margin:0; padding-left:0; list-style:none; counter-reset:s; display:flex; flex-direction:column; gap:14px}
+  ol li{counter-increment:s; display:flex; gap:14px; align-items:flex-start}
+  ol li::before{content:counter(s); flex:0 0 28px; width:28px; height:28px; border-radius:50%;
+    background:var(--chip); color:var(--brand1); font-weight:600; font-size:14px;
+    display:flex; align-items:center; justify-content:center; margin-top:1px}
+  .feat{display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-top:1px solid var(--line)}
+  .feat:first-child{border-top:0}
+  .feat .fi{flex:0 0 40px; width:40px; height:40px; border-radius:12px; background:var(--chip);
+    color:var(--brand1); display:flex; align-items:center; justify-content:center}
+  .feat .fi svg{width:22px; height:22px}
+  .feat b{font-weight:600}
+  .feat span{display:block; color:var(--muted); font-size:14px}
+  .note{background:var(--chip); border:1px solid var(--line); border-radius:14px; padding:14px 16px;
+    color:var(--muted); font-size:13.5px; margin-top:16px}
+  footer{margin-top:30px; text-align:center; color:var(--muted); font-size:13px}
+  svg{display:block}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+        <path d="M6 7c3 3 3 7 0 10"/><path d="M10 5c4 4 4 10 0 14"/><path d="M14 4c5 5 5 11 0 16"/>
+      </svg>
+    </div>
+    <h1>TapConnect</h1>
+    <p>Troca de contactos profissionais num toque, por NFC. Sem servidores, sem complicações.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="section card">
+      <h2>Instalar a app</h2>
+      <p class="sub">Para Android. Troca bidirecional por NFC entre dois telemóveis com a app.</p>
+      <a class="dl" href="TapConnect.apk" download>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1ZM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z"/></svg>
+        Descarregar APK
+      </a>
+      <p class="meta">APK · ~16 MB · Android 7.0+</p>
+    </div>
+
+    <div class="section card">
+      <h2>Como instalar</h2>
+      <p class="sub">É um APK fora da Play Store, por isso:</p>
+      <ol>
+        <li>Toca em <b>Descarregar APK</b> e abre o ficheiro.</li>
+        <li>Quando o Android pedir, <b>permite instalar de fontes desconhecidas</b> para o app que abriu o ficheiro.</li>
+        <li>Toca em <b>Instalar</b> e depois em <b>Abrir</b>.</li>
+        <li>Liga o <b>NFC</b> nas definições para trocar contactos.</li>
+      </ol>
+    </div>
+
+    <div class="section card">
+      <h2>O que faz</h2>
+      <p class="sub">&nbsp;</p>
+      <div class="feat">
+        <div class="fi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 7c3 3 3 7 0 10M10 5c4 4 4 10 0 14M14 4c5 5 5 11 0 16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div><b>Toque entre dois telemóveis</b><span>Ambos com a app: um inicia, o outro disponibiliza, e cada um fica com o contacto do outro.</span></div>
+      </div>
+      <div class="feat">
+        <div class="fi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v4H4zM4 10h10v10H4zM16 10h4v10h-4z"/></svg></div>
+        <div><b>Perfil com redes sociais</b><span>Nome, cargo, email, telefone e links: LinkedIn, GitHub, X, Instagram, e mais.</span></div>
+      </div>
+      <div class="feat">
+        <div class="fi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"/></svg></div>
+        <div><b>Partilha sem app</b><span>Quem não tem a app recebe o teu cartão por NFC num link que abre no browser.</span></div>
+      </div>
+
+      <div class="note">Para a troca por toque, ambos os telemóveis precisam da app. Partilhar o teu cartão por link funciona para qualquer pessoa.</div>
+    </div>
+
+    <footer>Projeto TapConnect · troca de contactos por NFC</footer>
+  </div>
+</body>
+</html>
